@@ -1,0 +1,12 @@
+open-webui==0.11.0
+google-search-results==2.4.2
+python-dotenv==1.2.3
+pyyaml==6.0.3
+
+langchain-core==1.6.0
+langchain-ollama==1.1.0
+langchain-chroma==1.1.0
+langchain-text-splitters==1.1.2
+markitdown==0.1.7
+chromadb==1.5.9
+streamlit==1.62.0

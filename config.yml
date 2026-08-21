@@ -1,0 +1,51 @@
+rag:
+  data_input_dir: resources/data_input
+  data_markdown_dir: resources/data_markdown
+  chroma_dir: resources/chroma_db
+  embedding_model: nomic-embed-text  # run: ollama pull nomic-embed-text
+#  chat_model: phi4-mini:latest
+  chat_model: qwen2.5:7b
+  chunk_size: 500
+  chunk_overlap: 200
+  embed_batch_size: 50
+  top_k: 8
+  prompt_template: |
+    Answer the question using only the context below. Do not use any names, characters, or details that are not explicitly present in the context. If the context does not contain the answer, say you don't know.
+
+    Context:
+    {context}
+
+    Question: {question}
+
+    Answer:
+
+  aggregate_keywords:
+    - how many
+    - count
+    - list all
+    - whole document
+    - entire document
+    - all chapters
+    - all stories
+    - total number
+
+  aggregate_prompt_template: |
+    Answer the question using the full document(s) below.
+
+    Document(s):
+    {context}
+
+    Question: {question}
+
+    Answer:
+
+search:
+  engine: google
+
+logging:
+  level: INFO
+  format: "%(asctime)s %(levelname)s %(name)s: %(message)s"
+  query_log:
+    file: resources/logs/queries.log
+    max_bytes: 1000000
+    backup_count: 3
